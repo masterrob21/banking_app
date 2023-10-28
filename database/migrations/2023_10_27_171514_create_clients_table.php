@@ -34,7 +34,7 @@ return new class extends Migration
             $table->string('placeOfWorship');
             $table->foreignId('identityTypeId');
             $table->string('idNumber');
-            $table->string('image');
+            $table->string('image')->nullable();
             $table->foreignId('branchId');
             $table->timestamps();
         });
