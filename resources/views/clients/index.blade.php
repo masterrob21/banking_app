@@ -4,7 +4,7 @@
 <div class="container bg-white">
   <h1>List of Customers</h1>
   <div>
-    <a class="btn btn-secondary" href="">New client</a>
+    <a class="btn btn-secondary" href="{{ route('client.create') }}">New client</a>
   </div>
   <p></p>
   <div class="table-responsive">
