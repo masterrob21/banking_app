@@ -4,10 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\Client;
 use App\Models\Gender;
+use App\Models\IdentityType;
 use App\Models\Nation;
 use App\Models\Occupation;
 use App\Models\Region;
 use App\Models\Relation;
+use App\Models\Religion;
 use App\Models\Title;
 use Illuminate\Http\Request;
 
@@ -32,7 +34,9 @@ class ClientController extends Controller
             ->with('regions', Region::all())
             ->with('occupations', Occupation::all())
             ->with('relations', Relation::all())
-            ->with('nations', Nation::all());
+            ->with('nations', Nation::all())
+            ->with('religions', Religion::all())
+            ->with('identityTypes', IdentityType::all());
     }
 
     /**
