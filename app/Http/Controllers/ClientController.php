@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Client;
 use App\Models\Gender;
+use App\Models\Nation;
 use App\Models\Occupation;
 use App\Models\Region;
 use App\Models\Relation;
@@ -30,7 +31,8 @@ class ClientController extends Controller
             ->with('genders', Gender::all())
             ->with('regions', Region::all())
             ->with('occupations', Occupation::all())
-            ->with('relations', Relation::all());
+            ->with('relations', Relation::all())
+            ->with('nations', Nation::all());
     }
 
     /**
