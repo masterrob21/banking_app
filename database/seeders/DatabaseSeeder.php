@@ -15,6 +15,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             RegionSeeder::class,
             TitleSeeder::class,
+            GenderSeeder::class,
         ]);
 
         // \App\Models\User::factory(10)->create();
