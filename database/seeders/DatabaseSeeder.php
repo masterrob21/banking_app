@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
             GenderSeeder::class,
             OccupationSeeder::class,
             RelationSeeder::class,
+            NationSeeder::class,
         ]);
 
         // \App\Models\User::factory(10)->create();
