@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Client;
+use App\Models\Gender;
+use App\Models\Occupation;
+use App\Models\Region;
+use App\Models\Title;
 use Illuminate\Http\Request;
 
 class ClientController extends Controller
@@ -20,7 +24,11 @@ class ClientController extends Controller
      */
     public function create()
     {
-        return view('clients.create');
+        return view('clients.create')
+            ->with('titles', Title::all())
+            ->with('genders', Gender::all())
+            ->with('regions', Region::all())
+            ->with('occupations', Occupation::all());
     }
 
     /**
