@@ -19,6 +19,8 @@ class DatabaseSeeder extends Seeder
             OccupationSeeder::class,
             RelationSeeder::class,
             NationSeeder::class,
+            ReligionSeeder::class,
+            IdentityTypeSeeder::class,
         ]);
 
         // \App\Models\User::factory(10)->create();
