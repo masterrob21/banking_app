@@ -6,6 +6,7 @@ use App\Models\Client;
 use App\Models\Gender;
 use App\Models\Occupation;
 use App\Models\Region;
+use App\Models\Relation;
 use App\Models\Title;
 use Illuminate\Http\Request;
 
@@ -28,7 +29,8 @@ class ClientController extends Controller
             ->with('titles', Title::all())
             ->with('genders', Gender::all())
             ->with('regions', Region::all())
-            ->with('occupations', Occupation::all());
+            ->with('occupations', Occupation::all())
+            ->with('relations', Relation::all());
     }
 
     /**
