@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
             TitleSeeder::class,
             GenderSeeder::class,
             OccupationSeeder::class,
+            RelationSeeder::class,
         ]);
 
         // \App\Models\User::factory(10)->create();
