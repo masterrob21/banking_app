@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
             NationSeeder::class,
             ReligionSeeder::class,
             IdentityTypeSeeder::class,
+            BranchSeeder::class,
         ]);
 
         // \App\Models\User::factory(10)->create();
