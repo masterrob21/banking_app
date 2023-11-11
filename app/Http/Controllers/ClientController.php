@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Branch;
 use App\Models\Client;
 use App\Models\Gender;
 use App\Models\IdentityType;
@@ -12,6 +13,8 @@ use App\Models\Relation;
 use App\Models\Religion;
 use App\Models\Title;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class ClientController extends Controller
 {
@@ -36,7 +39,8 @@ class ClientController extends Controller
             ->with('relations', Relation::all())
             ->with('nations', Nation::all())
             ->with('religions', Religion::all())
-            ->with('identityTypes', IdentityType::all());
+            ->with('identityTypes', IdentityType::all())
+            ->with('branches', Branch::all());
     }
 
     /**
@@ -44,7 +48,44 @@ class ClientController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // stores image in the public folder
+        $image = $request->image->store('clients', 'public');
+
+        // generating client number per branch.
+        $branchcode = DB::table('branches')->where('id', $request->branchid)->value('code');
+        $countClient = DB::table('clients')->where('branchid', $request->branchid)->count();
+        $clientNumber = $branchcode . ($countClient + 1000);
+
+
+        Client::create([
+            'clientNumber' => $clientNumber,
+            'titleId' => $request->titleid,
+            'surname' => $request->surname,
+            'othernames' => $request->othernames,
+            'dob' => $request->dob,
+            'genderid' => $request->genderid,
+            'resAddress' => $request->resAddress,
+            'town' => $request->town,
+            'homeTown' => $request->homeTown,
+            'regionId' => $request->regionid,
+            'occupationid' => $request->occupationid,
+            'phoneNumber' => $request->phoneNumber,
+            'isActive' => true,
+            'nextOfKin' => $request->nextOfKin,
+            'relationid' => $request->relationid,
+            'kinNumber' => $request->kinNumber,
+            'nationalityid' => $request->nationid,
+            'religionid' => $request->religionid,
+            'placeOfWorship' => $request->placeOfWorship,
+            'identityTypeid' => $request->identityTypeid,
+            'idNumber' => $request->idNumber,
+            'image' => $image,
+            'branchid' => $request->branchid,
+        ]);
+
+        session()->flash('success', 'New client has being added successfully');
+
+        return redirect()->route('client.create');
     }
 
     /**

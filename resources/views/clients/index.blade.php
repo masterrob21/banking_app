@@ -8,7 +8,7 @@
   </div>
   <p></p>
   <div class="table-responsive">
-    <table class="table table-striped">
+    <table class="table table-striped table-condensed">
       <thead class="table-dark">
         <tr>
           <th>Photo</th>
@@ -22,7 +22,7 @@
       <tbody class="table-group-divider">
         @if(count($clients) < 1)
         <tr>
-          <td colspan="5"><h2 class="text-danger">No record found</h2></td>
+          <td colspan="6"><h2 class="text-danger">No record found</h2></td>
         </tr>
         @else
         @foreach ($clients as $client)

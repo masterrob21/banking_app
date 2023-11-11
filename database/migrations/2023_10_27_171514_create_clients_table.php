@@ -24,11 +24,11 @@ return new class extends Migration
             $table->string('homeTown');
             $table->foreignId('regionId');
             $table->foreignId('occupationId');
-            $table->integer('phoneNumber');
+            $table->string('phoneNumber');
             $table->boolean('isActive');
             $table->string('nextOfKin');
             $table->foreignId('relationId');
-            $table->integer('kinNumber');
+            $table->string('kinNumber')->nullable();
             $table->foreignId('nationalityId');
             $table->foreignId('religionId');
             $table->string('placeOfWorship');

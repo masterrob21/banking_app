@@ -23,4 +23,5 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/clients', [ClientController::class, 'index']);
-Route::get('/client/create', [ClientController::class, 'create'])->name('client.create');
+Route::get('/clients/create', [ClientController::class, 'create'])->name('client.create');
+Route::post('/clients/store', [ClientController::class, 'store'])->name('clients.store');
